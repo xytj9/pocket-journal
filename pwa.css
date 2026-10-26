@@ -1,0 +1,35 @@
+:root { --pwa-ink: oklch(0.27 0.025 250); --pwa-paper: oklch(0.98 0.008 230); --pwa-accent: oklch(0.57 0.12 240); --pwa-vh: 100dvh; }
+html { min-height: 100%; scroll-padding-top: 180px; }
+body { min-height: 100dvh; padding-top: env(safe-area-inset-top); -webkit-text-size-adjust: 100%; }
+body > main { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+body > nav { padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+#anywhere-door-fab { bottom: calc(94px + env(safe-area-inset-bottom)) !important; }
+input:not([type='checkbox']):not([type='range']), textarea, select { font-size: max(16px, 1em) !important; scroll-margin-block: 160px 100px; }
+button, a, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--pwa-accent); outline-offset: 3px; }
+#anywhere-door-modal, #original-tools-modal { padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+#anywhere-door-modal > .comic-card, #original-tools-modal > .comic-card { max-height: calc(var(--pwa-vh) - 40px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); }
+.pwa-boot { position: fixed; inset: 0; z-index: 10000; display: grid; place-content: center; gap: 16px; padding: 28px; background: var(--pwa-paper); color: var(--pwa-ink); text-align: center; font: 16px/1.7 -apple-system, BlinkMacSystemFont, sans-serif; }
+.pwa-boot[hidden] { display: none; }
+.pwa-boot img { width: 86px; height: 86px; justify-self: center; border-radius: 22px; }
+.pwa-boot h1 { font-size: 25px; font-weight: 800; }
+.pwa-boot p { max-width: 32ch; }
+.pwa-boot button, .pwa-action { min-height: 44px; padding: 10px 14px; border: 2px solid var(--pwa-ink); border-radius: 13px; font-weight: 700; background: var(--pwa-paper); color: var(--pwa-ink); }
+#pwa-shelf { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px; align-items: center; margin: 10px auto 0; padding: 8px 12px; width: min(100%, 1120px); font-size: 12px; color: var(--pwa-ink); }
+#pwa-shelf p { line-height: 1.5; margin: 0; }
+#pwa-shelf button { min-height: 44px; padding: 6px 10px; border: 2px solid currentColor; border-radius: 12px; background: var(--pwa-paper); font-weight: 700; }
+#pwa-connection { display: block; font-size: 11px; opacity: .8; }
+#pwa-help { margin-top: 16px; border: 2px solid var(--pwa-ink); border-radius: 14px; padding: 12px; background: var(--pwa-paper); color: var(--pwa-ink); }
+#pwa-help summary { min-height: 44px; display: list-item; cursor: pointer; font-weight: 800; line-height: 1.6; }
+#pwa-help h4 { margin: 16px 0 6px; font-size: 15px; font-weight: 800; }
+#pwa-help p, #pwa-help li { font: 13px/1.7 -apple-system, BlinkMacSystemFont, sans-serif; }
+#pwa-help ol { padding-inline-start: 20px; list-style: decimal; }
+.pwa-actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 12px 0; }
+.pwa-action { width: 100%; font-size: 13px; }
+.pwa-action:disabled { opacity: .6; }
+#pwa-update { margin: 12px; padding: 12px; border: 2px solid var(--pwa-ink); border-radius: 14px; background: oklch(0.95 0.025 230); color: var(--pwa-ink); font-size: 13px; line-height: 1.6; }
+#pwa-update[hidden], #pwa-install-button[hidden] { display: none; }
+#pwa-storage-detail { overflow-wrap: anywhere; }
+#pocket-storage-error { top: max(10px, env(safe-area-inset-top)); }
+@media (max-width: 360px) { #pwa-shelf { padding-inline: 8px; } #pwa-shelf button { max-width: 110px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
